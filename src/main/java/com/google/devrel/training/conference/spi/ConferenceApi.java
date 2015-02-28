@@ -72,6 +72,7 @@ public class ConferenceApi {
         // TODO 2
         // Get the userId and mainEmail
         userId = user.getUserId();
+        mainEmail = user.getEmail();
         // TODO 2
         // If the displayName is null, set it to default value based on the user's email
         // by calling extractDefaultDisplayNameFromEmail(...)
@@ -83,7 +84,7 @@ public class ConferenceApi {
 
         // TODO 3 (In Lesson 3)
         // Save the Profile entity in the datastore
-
+        ofy().save().entity(profile).now();
         // Return the profile
         return profile;
     }
@@ -106,9 +107,10 @@ public class ConferenceApi {
 
         // TODO
         // load the Profile Entity
-        String userId = ""; // TODO
-        Key key = null; // TODO
-        Profile profile = null; // TODO load the Profile entity
+        	
+        String userId = user.getUserId();
+        Key key = Key.create(Profile.class,userId);
+        Profile profile = (Profile)ofy().load().key(key).now();
         return profile;
     }
 }

@@ -107,7 +107,7 @@ conferenceApp.controllers.controller('MyProfileCtrl',
                             // The request has succeeded.
                             $scope.messages = 'The profile has been updated';
                             $scope.alertStatus = 'success';
-                            $scope.submitted = false;
+                            $scope.submitted = true;
                             $scope.initialProfile = {
                                 displayName: $scope.profile.displayName,
                                 teeShirtSize: $scope.profile.teeShirtSize
